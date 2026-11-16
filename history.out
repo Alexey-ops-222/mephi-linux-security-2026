@@ -1,0 +1,62 @@
+    1  groupadd students
+    2  useradd -u 1234 -G students -m user1
+    3  passwd user1
+    4  chage -M 90 user1
+    5  find / -perm -4000 -type f 2>/dev/ null > ~/setuid_files.out
+    6  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/ euid_processes.out
+    7  find / -perm -4000 -type f 2>/dev/null > ~/setuid_files.out
+    8  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/ euid_processes.out
+    9  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' >~/ euid_processes.out
+   10  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   11  cat ~/euid_processes.out
+   12  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   13  cat ~/euid_processes.out
+   14  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   15  cat ~/euid_processes.out
+   16  exit
+   17  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   18  cat ~/euid_processes.out
+   19  su - user1 -c "sleep 60" &
+   20  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   21  cat ~/euid_processes.out
+   22  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   23  cat ~/euid_processes.out
+   24  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   25  cat ~/euid_processes.out
+   26  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0'
+   27  ps -eo user,uid,euid,pid,cmd | grep passwd
+   28  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0' > ~/euid_processes.out
+   29  cat ~/euid_processes.out
+   30  ps -eo user,uid,euid,pid,cmd | grep passwd
+   31  ps -eo user,uid,euid,pid,cmd | grep passwd > ~/passwd_processes.out
+   32  cat ~/passwd_processes.out
+   33  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $2 != 0'
+   34  ps -eo user,uid,euid,pid,cmd | awk '$3 == 0 && $1 != "root"'
+   35  cp /bin/bash /home/user1/my_bash
+   36  chown root:root /home/user1/my_bash
+   37  chmod u+s /home/user1/my_bash
+   38  su - user1
+   39  stat /home/user1/my_bash >> ~/stat,out
+   40  getcap /home/user1/my_bash > ~/getcap,out
+   41  getcap /home/user1/my_bash > ~/getcap.out
+   42  stat /home/user1/my_bash >> ~/stat.out
+   43  cat ~/stat.out
+   44  cp /bin/bash /home/user1/cap_bash
+   45  setcap cap_chown+ep /home/user1/cap_bash
+   46  su - user1
+   47  setcap cap_chown,cap_fowner+ep /home/user1/cap_bash
+   48  su - user1
+   49  stat /home/user1/cap_bash >> ~/stat.out
+   50  getcap /home/user1/cap_bash >> ~/getcap.out
+   51  visudo
+   52  su - user1
+   53  echo "useeer1 ALL=(ALL) /usr/bin/date, /bin/date, /usr/bin/timedatectl" > /etc/sudoers.d/user1_time
+   54  chmod 440 /etc/sudoers.d/user1_time
+   55  su - user1
+   56  rm -f /etc/sudoers.d/user1_time
+   57  echo "user1 ALL=(ALL) /usr/bin/date, /bin/date, /usr/bin/timedatectl" > /etc/sudoers.d/user1_time
+   58  chown root:root /etc/sudoers.d/user1_time
+   59  chmod 440 /etc/sudoers.d/user1_time
+   60  su - user1
+   61  sudo -l -U user1 > ~/sudo_rules.out
+   62  history >~/history.out

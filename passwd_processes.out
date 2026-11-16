@@ -1,0 +1,4 @@
+root         0     0    1357 sudo -u user1 passwd
+root         0     0    1359 sudo -u user1 passwd
+root         0     0    1360 passwd
+root         0     0    1374 grep --color=auto passwd
